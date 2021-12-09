@@ -175,6 +175,12 @@ class ThemeController {
         if (!$page['items'] || ($page['section'] == 'categories' && !isset($page['category']) && !isset($page['chronology_field']) && !isset($page['flat']))) {
             return;
         }
+        
+        //Debug - On Picture Only - OutOfMemory
+        if(!isset($page['category']) || $page['section'] == 'categories')
+        {
+            return;
+        }
 
         // select all pictures for this category
         $query = '
